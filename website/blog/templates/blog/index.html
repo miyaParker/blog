@@ -1,0 +1,97 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+    body{
+        background-color: #fff;
+        font-family: 'Raleway';
+    }
+    h1{
+        margin: 3rem;
+    }
+    h1,h2{
+        text-align: center;
+    }
+    section{
+        margin-top: 5rem;
+    }
+    .cards-container{
+        width: 90%;
+        margin:  auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        padding: 0rem 4rem;
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: stretch;
+        background-color: #FDEBFF;
+        border-radius: 13px;
+        padding: 1.5rem 2rem;
+        margin: 1rem;
+    }
+    #create-post{
+        display:block;
+        margin: 0 auto;
+
+    }
+    button{
+        display: block;
+        background-color: #9300A3;
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: .5rem;
+        border: none;
+        cursor: pointer;
+    }
+    #create-button{
+        margin: 0 auto;
+    }
+</style>
+<body>
+    <main>
+        <h1>
+            My Blog App
+        </h1>
+      <select name="" id="category">
+        <option value="">...</option>
+          <option value="django">django</option>
+          <option value="dev">dev</option>
+          <option value="inspiration">inspiration</option>
+      </select>
+    </main>
+        <section>
+            <h2>Blog Posts</h2>
+            <a href="{% url 'blog:create' %}"><button id="create-post">Create Post</button></a>
+            {% if posts %}
+            <div class="cards-container">
+                {% for post in posts %}
+                    <div class="card">
+                        <div>
+                            <h3>{{post.title}}</h3>
+                            <p>{{post.author}}</p>
+                        </div>
+                        <p>{{post.content}}</p>
+                        <a href="{% url 'blog:detail' post.id %}"><button>Read more</button></a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% else %}
+                <p>No post to display</p>
+            {% endif %}
+        </section>
+        <script src="{% static 'blog/js/index.js' %}">
+        
+        </script>
+</body>
+</html>

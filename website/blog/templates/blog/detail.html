@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+    body{
+        background-color: #fff;
+        font-family: 'Raleway';
+    }
+    h1{
+        margin: 3rem;
+    }
+    h1,h2{
+        text-align: center;
+    }
+    section{
+        margin-top: 4rem;
+        padding: 0 4rem;
+
+    }
+    span{
+        color: #480052;
+        display: inline-block;
+        margin-right: 1rem;
+    }
+</style>
+<body>
+    <main>
+        <h1>
+            My Blog App
+        </h1> 
+    </main>
+    <section>
+        <h2>{{post.title}}</h2>
+        <span>{{post.author}}</span>
+        <span>{{post.created_date}}</span>
+        <p>{{post.content}}</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
+    * {
+      font-family: "Raleway";
+    }
+    h1 {
+      text-align: center;
+      padding: 2rem;
+    }
+    input,
+    textarea {
+      color: grey;
+      display: block;
+      margin: 1rem auto;
+    }
+    input,
+    textarea {
+      padding: 0.8rem 0.6rem;
+      width: 25%;
+      border: 1px solid #9300a3;
+      border-radius: 13px;
+    }
+    input[type="submit"] {
+      background-color: #9300a3;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <h1>Create a Post</h1>
+    <form action="{% url 'blog:create' %}" method="post">
+      {% csrf_token %} {{form}}
+      <input type="submit" value="Create Post" />
+    </form>
+  </body>
+</html>
